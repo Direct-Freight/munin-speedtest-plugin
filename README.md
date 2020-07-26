@@ -3,28 +3,43 @@ A Munin plugin to graph the results from speedtest-cli
 
 Setup instructions:
 
-1. Download [speedtest-cli](https://github.com/sivel/speedtest-cli)
+1. Install [speedtest-cli](https://github.com/sivel/speedtest-cli)
+
+	*pip / easy\_install*
+
+	```bash
+	pip install speedtest-cli
+
+	easy_install speedtest-cli
+	```
+
+	*Download*
 
     ```bash
-    wget -O speedtest-cli https://raw.github.com/sivel/speedtest-cli/master/speedtest_cli.py
+	wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py
     chmod +x speedtest-cli
     ```
-1. Create a crontab similar to this
+
+1. Create a crontab entry like the following
 
     ```bash
-    crontab -e
-    58,18,38 * * * * root /<path>/<to>/<file>/speedtest-cli --simple > /tmp/speedtest.out
+    sudo crontab -e
+    58,18,38 * * * * sudo /<path>/<to>/<file>/speedtest-cli --simple > /var/log/munin/speedtest.out
     ```
+
 1. Copy speedtest.sh into Munin plugins folder (on Debian/Ubuntu)
 
     ```bash
-    cp /<path>/<to>/<file>/speedtest.sh /etc/munin/plugins/speedtest.sh
-    chmod 777 /etc/munin/plugins/speedtest.sh
+    sudo cp /<path>/<to>/<file>/speedtest.sh /usr/share/munin/plugins/speedtest.sh
+    sudo chmod 755 /etc/munin/plugins/speedtest.sh
+	sudo ln -s /usr/share/munin/plugins/speedtest.sh /etc/munin/plugins/speedtest.sh
     ```
+
 1. Restart munin-node to detect the new plugin
 
     ```bash
-    sudo /etc/init.d/munin-node restart
+    sudo service munin-node restart
+	sudo service munin restart
     ```
 
 Original author: Alex Pardoe
