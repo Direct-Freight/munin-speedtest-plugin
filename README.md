@@ -5,15 +5,17 @@ Setup instructions:
 
 1. Install [speedtest-cli](https://github.com/sivel/speedtest-cli)
 
-	*pip / easy\_install*
+	**pip / easy\_install**
 
 	```bash
 	pip install speedtest-cli
+	```
 
+	```bash
 	easy_install speedtest-cli
 	```
 
-	*Download*
+	**Download**
 
     ```bash
 	wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py
