@@ -17,7 +17,7 @@ case $1 in
     exit 0;;
     esac
 
-OUTPUT=`cat /tmp/speedtest.out`
+OUTPUT=`cat /var/log/munin/speedtest.out`
 DOWNLOAD=`echo "$OUTPUT" | grep Download | sed 's/[a-zA-Z:]* \([0-9]*\.[0-9]*\) [a-zA-Z/]*/\1/'`
 UPLOAD=`echo "$OUTPUT" | grep Upload | sed 's/[a-zA-Z:]* \([0-9]*\.[0-9]*\) [a-zA-Z/]*/\1/'`
 
