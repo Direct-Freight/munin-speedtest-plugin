@@ -33,7 +33,7 @@ Setup instructions:
 
     ```bash
     sudo cp /<path>/<to>/<file>/speedtest.sh /usr/share/munin/plugins/speedtest.sh
-    sudo chmod 755 /etc/munin/plugins/speedtest.sh
+    sudo chmod a+x /usr/share/munin/plugins/speedtest.sh
 	sudo ln -s /usr/share/munin/plugins/speedtest.sh /etc/munin/plugins/speedtest.sh
     ```
 
